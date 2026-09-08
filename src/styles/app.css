@@ -1,0 +1,142 @@
+:root {
+  --page-bg: #f4f6f9;
+  --surface: #ffffff;
+  --text-primary: #1f2430;
+  --text-secondary: #6b7280;
+  --border: #e6e8ee;
+  --accent: #2f6fed;
+
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  background: var(--page-bg);
+  color: var(--text-primary);
+  font-family:
+    'Inter',
+    'Segoe UI',
+    system-ui,
+    -apple-system,
+    'Helvetica Neue',
+    Arial,
+    sans-serif;
+  font-size: 14px;
+  line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page {
+  margin: 0 auto;
+  max-width: 1080px;
+  padding: 40px 24px 64px;
+}
+
+.page__header {
+  align-items: baseline;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.page__title {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.page__status {
+  color: var(--text-secondary);
+  font-size: 13px;
+  margin: 0;
+}
+
+/* --- Таблица --------------------------------------------------------- */
+
+.tree-table {
+  --ag-font-family: inherit;
+  --ag-font-size: 13px;
+  --ag-border-color: var(--border);
+  --ag-row-border-color: #eef0f4;
+  --ag-header-background-color: #f7f8fa;
+  --ag-header-foreground-color: #3f4653;
+  --ag-header-column-resize-handle-color: transparent;
+  --ag-row-hover-color: #f7f9fd;
+  --ag-selected-row-background-color: #eef4ff;
+  --ag-cell-horizontal-padding: 18px;
+  --ag-borders: solid 1px;
+  --ag-wrapper-border-radius: 10px;
+
+  background: var(--surface);
+  box-shadow: 0 1px 2px rgb(16 24 40 / 6%);
+  height: clamp(360px, 62vh, 620px);
+  width: 100%;
+}
+
+.tree-table .ag-header-cell-text {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.tree-table .cell-row-number {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.tree-table .cell-category {
+  color: var(--text-secondary);
+}
+
+.tree-table .cell-label {
+  color: #4b5563;
+}
+
+.tree-table .cell-category.is-group,
+.tree-table .cell-label.is-group {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* --- Состояние загрузки ---------------------------------------------- */
+
+.table-loading {
+  align-items: center;
+  color: var(--text-secondary);
+  display: flex;
+  font-size: 13px;
+  gap: 10px;
+}
+
+.table-loading__spinner {
+  animation: table-loading-spin 0.8s linear infinite;
+  border: 2px solid #dfe3ea;
+  border-radius: 50%;
+  border-top-color: var(--accent);
+  display: inline-block;
+  height: 16px;
+  width: 16px;
+}
+
+@keyframes table-loading-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .table-loading__spinner {
+    animation-duration: 2.4s;
+  }
+}
